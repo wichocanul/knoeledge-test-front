@@ -5,12 +5,16 @@ import { LoginComponent } from './auth/pages/login/login.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'auth',
     loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule)
   },
   {
+    path: 'kt',
+    loadChildren: () => import('./client-app/client-app.module').then( m => m.ClientAppModule)
+  },
+  {
     path: '**',
-    redirectTo: ''
+    redirectTo: 'auth'
   }
 ];
 

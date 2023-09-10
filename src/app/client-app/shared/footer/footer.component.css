@@ -1,0 +1,9 @@
+.container-full {
+  height: 40px;
+  background: #262626;
+  color: #fff;
+  text-align: center;
+  font-size: .8rem;
+  display: flex;
+  align-items: center;
+}

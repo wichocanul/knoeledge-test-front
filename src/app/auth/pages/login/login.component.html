@@ -1,1 +1,39 @@
-<p>login works!</p>
+<div class="containerAuth">
+
+  <h3>Knowledge Test</h3>
+
+  <form
+    autocomplete="off"
+    [formGroup]="loginForm"
+    (ngSubmit)="login()"
+  >
+
+    <div class="inputCont">
+      <img src="assets/icons/mail.png" alt="icon">
+      <input
+        type="text"
+        placeholder="email"
+        autocomplete="off"
+        formControlName="email"
+      >
+    </div>
+
+    <div class="inputCont">
+      <img src="assets/icons/password.png" alt="icon">
+      <input
+        type="password"
+        placeholder="password"
+        autocomplete="off"
+        formControlName="password"
+      >
+    </div>
+
+    <button
+      type="submit"
+    >
+      Login
+    </button>
+
+  </form>
+
+</div>

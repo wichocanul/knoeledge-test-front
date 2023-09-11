@@ -14,3 +14,13 @@ export interface EmployedResponse {
 export interface DeleteEmployed {
   message: string;
 }
+
+export interface EmployedCreate {
+  birthdate: string;
+  email: string;
+  name: string;
+  phone: string;
+  proceedings: number;
+  rfc: string;
+  id?: number;
+}

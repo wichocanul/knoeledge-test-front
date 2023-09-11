@@ -1,5 +1,6 @@
 import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
-import { EmployedResponse } from 'src/app/client-app/interfaces/employees-interface';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EmployedCreate, EmployedResponse } from 'src/app/client-app/interfaces/employees-interface';
 import { EmployeesService } from 'src/app/client-app/services/employees.service';
 import Swal from 'sweetalert2';
 
@@ -10,16 +11,38 @@ import Swal from 'sweetalert2';
 })
 export class EmployeesMainComponent {
 
+  employedCurrent: EmployedCreate = {
+    'birthdate': '',
+    'email': '',
+    'name': '',
+    'phone': '',
+    'proceedings': 0,
+    'rfc': ''
+  }
+  idCurrent: number = 0;
+  editForm: FormGroup = this.fb.group({
+    proceedings   : ['', [Validators.required] ],
+    name: ['', [Validators.required] ],
+    birthdate: ['', [Validators.required]],
+    rfc: ['', [Validators.required]],
+    email: ['', [Validators.required]],
+    phone: ['', [Validators.required]]
+  });
   employees: EmployedResponse[] = [];
   statusWindow: boolean = false;
   @ViewChild('asModalWindow') modalWindow! : ElementRef;
 
   constructor( private empService: EmployeesService,
-               private render2: Renderer2
+               private render2: Renderer2,
+               private fb: FormBuilder,
   ) {}
 
   ngOnInit() {
     this.getEmployees();
+  }
+
+  addEmployed(data: any) {
+    console.log(data)
   }
 
   getEmployees() {
@@ -66,7 +89,23 @@ export class EmployeesMainComponent {
     })
   }
 
-  statusModal() {
+  statusModal(employed?: EmployedCreate) {
+
+    if(this.employedCurrent) {
+
+      this.employedCurrent = {
+        'proceedings': employed?.proceedings!,
+        'birthdate': employed?.birthdate!,
+        'email': employed?.email!,
+        'name': employed?.name!,
+        'phone': employed?.phone!,
+        'rfc': employed?.rfc!
+      }
+
+      employed ? this.idCurrent = employed!.id! : this.idCurrent = 0;
+
+    }
+
     const status = this.modalWindow.nativeElement;
 
     if(this.statusWindow) {
@@ -78,6 +117,31 @@ export class EmployeesMainComponent {
       this.render2.addClass(status, 'modalWindow');
       this.statusWindow = true;
     }
+  }
+
+  editEmployed() {
+
+    if(this.editForm.invalid) {
+      return;
+    }
+
+    this.empService.edit(this.employedCurrent, this.idCurrent)
+      .subscribe({
+        next: (resp) => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Actualizacion exitosa',
+            text: 'El empleado fue actualizado',
+          })
+          this.render2.addClass(this.modalWindow.nativeElement, 'hidden');
+          this.render2.removeClass(this.modalWindow.nativeElement, 'modalWindow');
+          this.statusWindow = false;
+          this.getEmployees();
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      })
   }
 
 }

@@ -13,7 +13,50 @@
     </div>
 
     <div class="modalCont">
-      <p>hola</p>
+
+      <form
+        autocomplete="off"
+        [formGroup]="createForm"
+        (ngSubmit)="registerEmployed()"
+      >
+        <div class="inputCont">
+          <label for="">Expendiente:</label>
+          <input type="text" formControlName="proceedings">
+        </div>
+
+        <div class="inputCont">
+          <label for="">Nombre:</label>
+          <input type="text" formControlName="name">
+        </div>
+
+        <div class="inputCont">
+          <label for="">Fecha de Nacimiento:</label>
+          <input type="date" formControlName="birthdate">
+        </div>
+
+        <div class="inputCont">
+          <label for="">RFC:</label>
+          <input type="text" formControlName="rfc">
+        </div>
+
+        <div class="inputCont">
+          <label for="">Email:</label>
+          <input type="email" formControlName="email">
+        </div>
+
+        <div class="inputCont">
+          <label for="">Telefono:</label>
+          <input type="text" formControlName="phone">
+        </div>
+
+        <div class="contBtn">
+          <button class="register" type="submit">
+            Registrar
+          </button>
+        </div>
+
+      </form>
+
     </div>
 
   </div>

@@ -76,3 +76,43 @@ table .butons {
   background: #d72338;
   box-shadow: none;
 }
+
+form {
+  width: 100%;
+  margin-top: 10px;
+}
+
+form .inputCont {
+  width: 100%;
+  display: flex;
+  margin: 10px 0;
+}
+
+.inputCont label {
+  font-weight: bold;
+}
+
+.inputCont input {
+  padding: 5px;
+  width: 100%;
+  font-family: 'Quicksand', sans-serif;
+  border-radius: 5px;
+  margin-left: 10px;
+  border: 2px solid #bfbfbf;
+}
+
+.contBtn {
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+}
+
+.register {
+  margin: auto;
+  padding: 5px 10px;
+  background: #30a7d6;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}

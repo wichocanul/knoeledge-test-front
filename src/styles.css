@@ -75,7 +75,8 @@ GLOBAL STYLES
 .modal {
   position: relative;
   width: 500px;
-  height: 300px;
+  height: auto;
+  padding-bottom: 10px;
   background: #fff;
 }
 

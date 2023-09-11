@@ -6,6 +6,7 @@ import { ClientAppMainComponent } from './pages/client-app-main/client-app-main.
 import { SharedModule } from './shared/shared.module';
 import { EmployeesMainComponent } from './pages/employees/employees-main/employees-main.component';
 import { CreateComponent } from './pages/employees/create/create.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { CreateComponent } from './pages/employees/create/create.component';
   imports: [
     CommonModule,
     ClientAppRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class ClientAppModule { }

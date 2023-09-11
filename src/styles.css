@@ -59,3 +59,53 @@ GLOBAL STYLES
   max-width: 1200px;
   margin: auto;
 }
+
+.modalWindow {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  background: #202020c8;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  position: relative;
+  width: 500px;
+  height: 300px;
+  background: #fff;
+}
+
+
+.modalHeader {
+  width: 100%;
+  background: #f0f0f0;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px 5px 20px;
+  font-weight: bold;
+}
+
+.modalHeader button {
+  width: 25px;
+  height: 25px;
+  line-height: 20px;
+  border-radius: 50%;
+  border: 2px solid #656565;
+  cursor: pointer;
+  color: #656565;
+}
+
+.modalCont {
+  width: 90%;
+  display: flex;
+  margin: auto;
+}
+
+.hidden {
+  display: none;
+}

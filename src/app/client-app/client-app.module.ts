@@ -5,12 +5,14 @@ import { ClientAppRoutingModule } from './client-app-routing.module';
 import { ClientAppMainComponent } from './pages/client-app-main/client-app-main.component';
 import { SharedModule } from './shared/shared.module';
 import { EmployeesMainComponent } from './pages/employees/employees-main/employees-main.component';
+import { CreateComponent } from './pages/employees/create/create.component';
 
 
 @NgModule({
   declarations: [
     ClientAppMainComponent,
-    EmployeesMainComponent
+    EmployeesMainComponent,
+    CreateComponent
   ],
   imports: [
     CommonModule,

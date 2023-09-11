@@ -43,6 +43,7 @@ export class EmployeesMainComponent {
         this.empService.delete(id)
           .subscribe({
             next: () => {
+              this.getEmployees();
               Swal.fire(
                 'Eliminado!',
                 'El usuario ha sido eliminado',
@@ -58,7 +59,6 @@ export class EmployeesMainComponent {
             }
           })
       }
-      this.getEmployees();
     })
   }
 

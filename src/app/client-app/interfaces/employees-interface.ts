@@ -9,3 +9,8 @@ export interface EmployedResponse {
   rfc: string;
   updated_at?: string;
 }
+
+
+export interface DeleteEmployed {
+  message: string;
+}

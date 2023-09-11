@@ -26,7 +26,7 @@
         <td>{{ employed.phone }}</td>
         <td class="butons">
           <button class="edit">Editar</button>
-          <button class="delete">Borrar</button>
+          <button (click)="delete(employed.id, employed.name)" class="delete">Borrar</button>
         </td>
       </tr>
     </table>

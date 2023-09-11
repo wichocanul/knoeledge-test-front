@@ -21,6 +21,10 @@ export class LoginComponent {
                private router     : Router,
   ) {}
 
+  ngOnInit() {
+    localStorage.clear();
+  }
+
   login() {
     const { email, password } = this.loginForm.value;
 

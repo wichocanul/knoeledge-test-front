@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { AuthResponse } from '../interfaces/auth-interface';
-import { catchError, map, tap } from 'rxjs';
+import { Observable, catchError, map, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -27,5 +27,15 @@ export class AuthService {
           }
         })
       )
+  }
+
+  singOff(): Observable<any> {
+
+    // TODO: Add interceptor for the request
+    const url = `${this.baseUrl}/logout`;
+    const headers = new HttpHeaders()
+      .set('Authorization', `Bearer ${localStorage.getItem('token')}`);
+
+    return this.http.get( url, { headers } )
   }
 }

@@ -4,17 +4,30 @@
 
     <table>
       <tr class="header">
-        <th  style="padding: 5px 0;">#</th>
-        <th>Expediente</th>
-        <th>Nombre</th>
-        <th>Fecha de Nacimiento</th>
-        <th>RFC</th>
-        <th>Email</th>
-        <th>Telefono</th>
+        <td style="width: 10px;"></td>
+        <td  style="padding: 5px 0;">#</td>
+        <td>Expediente</td>
+        <td>Nombre</td>
+        <td>Fecha de Nacimiento</td>
+        <td>RFC</td>
+        <td>Email</td>
+        <td>Telefono</td>
+        <td>Acciones</td>
       </tr>
 
-      <tr>
-        <td>hola</td>
+      <tr class="employedRow" *ngFor="let employed of employees; let i = index">
+        <td style="width: 10px;"></td>
+        <td style="font-weight: bold;">{{ i + 1 }}</td>
+        <td>{{ employed.proceedings }}</td>
+        <td>{{ employed.name }}</td>
+        <td>{{ employed.birthdate }}</td>
+        <td>{{ employed.rfc }}</td>
+        <td>{{ employed.email }}</td>
+        <td>{{ employed.phone }}</td>
+        <td class="butons">
+          <button class="edit">Editar</button>
+          <button class="delete">Borrar</button>
+        </td>
       </tr>
     </table>
 

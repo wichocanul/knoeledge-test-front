@@ -9,10 +9,14 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 })
 export class NavComponent {
 
+  user: string = '';
+
   constructor( private authService: AuthService,
                private router     : Router,
-  ) {
+  ) {}
 
+  ngOnInit() {
+    localStorage.getItem('user') ? this.user = localStorage.getItem('user')! : '';
   }
 
   singOff() {

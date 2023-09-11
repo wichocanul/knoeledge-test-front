@@ -11,7 +11,7 @@ export class AuthService {
 
   private baseUrl: string = environment.urlKnowledgeTest;
 
-  constructor( private http: HttpClient) { }
+  constructor( private http: HttpClient ) { }
 
   login(email: string, password: string) {
 
@@ -29,7 +29,7 @@ export class AuthService {
       )
   }
 
-  singOff(): Observable<any> {
+  singOff() {
 
     // TODO: Add interceptor for the request
     const url = `${this.baseUrl}/logout`;

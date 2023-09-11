@@ -19,7 +19,8 @@ export class CreateComponent {
     const status = this.modalWindow.nativeElement;
 
     if(this.statusWindow) {
-      this.render2.addClass(status, 'hidden')
+      this.render2.addClass(status, 'hidden');
+      this.render2.removeClass(status, 'modalWindow');
       this.statusWindow = false;
     } else {
       this.render2.removeClass(status, 'hidden');

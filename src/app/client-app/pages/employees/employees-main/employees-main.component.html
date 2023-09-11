@@ -27,7 +27,7 @@
         <td>{{ employed.email }}</td>
         <td>{{ employed.phone }}</td>
         <td class="butons">
-          <button class="edit">Editar</button>
+          <button (click)="statusModal()" class="edit">Editar</button>
           <button (click)="delete(employed.id, employed.name)" class="delete">Borrar</button>
         </td>
       </tr>
@@ -36,4 +36,21 @@
   </div>
 
 
+</div>
+
+
+<div class="hidden" #asModalWindow>
+  <div class="modal">
+
+    <div class="modalHeader">
+      <div></div>
+      <p>Editar trabajador</p>
+      <button (click)="statusModal()">X</button>
+    </div>
+
+    <div class="modalCont">
+      <p>hola2</p>
+    </div>
+
+  </div>
 </div>
